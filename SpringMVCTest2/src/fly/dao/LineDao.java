@@ -4,7 +4,7 @@ import fly.entity.Line;
 
 public interface LineDao {
 	/**
-	 * 添加订单明细
+	 * 添加订单明细hjhjhjhjhfjhjhfjvhj
 	 */
 	public void addLine(Line line);
 	
