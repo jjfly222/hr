@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fly.dao.OrderDao">
+	 
+	 <sql id="order_column">
+		select  odr_id,odr_customer_id,odr_customer_name,odr_customer_addr,odr_customer_date,odr_status
+	</sql>
+	<!-- 增加订单 -->
+	<insert id="addOrder" parameterType="Order">
+		insert into sale_order(odr_id,odr_customer_id,odr_customer_name,odr_customer_addr,odr_customer_date,odr_deliver_date,odr_status)
+		  values(#{odrId},#{odrCustmoerId},#{odrCustomerName},#{odrCustomerAddr},#{odrOrderDate},#{odrDeliverDate},#{odrStatus})
+	</insert>
+	<!-- 通过订单编码查询订单 -->
+	<select id="queryOrderById"  parameterType="int" resultType="Order">
+	<include refid="order_column"></include> from sale_order  where odr_customer_id=#{odrCustmoerId};
+	</select>
+	
+	<!-- 通过订单编码 更新订单 -->
+	 <update id="updateUser" >
+	 update user set odr_customer_name=#{odrCustomerName},odr_customer_addr=#{odrCustomerAddr},odr_deliver_date=#{odrDeliverDate},odr_status=#{odrStatus} where odr_customer_id=#{odrCustmoerId}
+	 </update>
+	 
+</mapper> 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="fly.dao.ProductDao">
+	 
+	 
+	
+	<!-- 查询用户名字 -->
+	<select id="queryProduct" >
+	select prod_name from sale_product;
+	</select>
+	
+	<!-- 查询价格，通过名字 -->
+	 <select id="queryProduct" parameterType="String">
+	select prod_price from sale_product where prod_name=prodName;
+	</select>
+	 
+</mapper> 
